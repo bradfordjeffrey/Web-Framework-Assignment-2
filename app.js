@@ -26,6 +26,9 @@ const app = express();
 // Case-sensitive routing (kept from A1)
 app.set("case sensitive routing", true);
 
+// Set views directory
+app.set('views', __dirname + '/views');
+
 // Load Airbnb data
 const myData = path.join(__dirname, "data", "airbnb_with_photos.json");
 
