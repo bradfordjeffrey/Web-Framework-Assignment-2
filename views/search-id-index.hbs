@@ -1,0 +1,55 @@
+{{!-- ** Add the following to index.hbs *** --}}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+ <h2>{{title}}</h2>
+  {{#if message}}
+ <h2>{{message}}</h2>
+  {{!-- Search form --}}
+   {{/if}}
+
+<section>
+  <form action="/search-id-index/" method="get" class="search-form">
+    <label for="index"><strong>Enter Index</strong></label>
+    <input
+      id="index"
+      name="index"
+      type="number"
+      min="1"
+      required
+      placeholder="e.g. 10"
+      value="{{query.index}}"
+    />
+    <button type="submit">Search</button>
+  </form>
+</section>
+
+{{!-- If a listing was found --}}
+{{#if listing}}
+  <section class="result">
+    <h2>Result</h2>
+
+    <div style="border:1px solid #ccc; margin:10px; padding:10px;">
+      <p><strong>ID:</strong> {{listing.id}}</p>
+      <p><strong>NAME:</strong> {{listing.NAME}}</p>
+      <p><strong>Host:</strong> {{lookup listing "host name"}}</p>
+      <p><strong>Country:</strong> {{listing.country}}</p>
+      <p><strong>Room Type:</strong> {{lookup listing "room type"}}</p>
+      <p><strong>Price:</strong> {{listing.price}}</p>
+
+      {{#if listing.thumbnail}}
+        <img src="{{listing.thumbnail}}" alt="{{listing.NAME}}" width="420" />
+      {{/if}}
+    </div>
+  </section>
+{{/if}}
+
+</body>
+</html>
+

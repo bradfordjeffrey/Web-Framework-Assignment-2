@@ -1,0 +1,27 @@
+{{!-- ** Add the following to index.hbs *** --}}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+ <h2>{{title}}</h2>
+ <h2>{{message}}</h2>
+ <section>
+    <h2>Available Routes</h2>
+    <ul>
+      {{#each links}}
+        <li><a href="{{url}}">{{text}}</a></li>
+      {{/each}}
+    </ul>
+  </section>
+{{!-- <p>Jeffrey Lamptey welcomes you to his {{title}} App!</p>
+<p>This project is an exciting exploration of Node.js and the 
+    Express framework  a hands-on journey into building modern, 
+    server-driven web applications.</p> --}}
+</body>
+</html>
+

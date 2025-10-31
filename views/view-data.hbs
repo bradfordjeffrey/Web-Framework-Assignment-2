@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="/style.css" />
+
+</head>
+<body>
+  <h2>{{title}}</h2>
+  {{#if message}}<p class="muted">{{message}}</p>{{/if}}
+
+  <nav class="toolbar" style="margin-bottom:10px;">
+    <a href="/view-data">Default (first 200)</a>
+    <a href="/view-data/clean">Cleaned Cleaning Fee</a>
+    <a href="/view-data/price">Sorted by Price</a>
+  </nav>
+
+  {{#if listings}}
+    <p><strong>Total shown:</strong> {{listings.length}}</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>NAME</th>
+          <th>Host</th>
+          <th>Country</th>
+          <th>Room Type</th>
+          <th>Price</th>
+          <th>Service Fee<br/>(highlight empty)</th>
+          <th>Cleaning Fee<br/>(Yes/No)</th>
+          <th>Neighbourhood</th>
+          <th>Property Type</th>
+          <th>Thumbnail</th>
+        </tr>
+      </thead>
+      <tbody>
+   {{#each listings}}
+  <tr class="{{serviceFeeHighlight (lookup this 'service fee')}}">
+            <td>{{this.id}}</td>
+            <td>{{this.NAME}}</td>
+            <td>{{lookup this "host name"}}</td>
+            <td>{{this.country}}</td>
+            <td>{{lookup this "room type"}}</td>
+            <td>{{this.price}}</td>
+
+            {{!-- service fee to use highlight helper ) --}}
+
+<td>
+  {{#if (lookup this "service fee")}}
+    {{lookup this "service fee"}}
+  {{else}}
+    $0
+  {{/if}}
+</td>
+
+            {{!-- cleaning_fee using feeCheck helper --}}
+            <td>{{feeCheck this.cleaning_fee}}</td>
+
+            <td>
+              {{this.neighbourhood}}
+              {{#if (lookup this "neighbourhood group")}}, {{lookup this "neighbourhood group"}}{{/if}}
+            </td>
+            <td>{{this.property_type}}</td>
+            <td>
+              {{#if this.thumbnail}}
+                <img class="thumb" src="{{this.thumbnail}}" alt="{{this.NAME}}" />
+              {{else if this.images}}
+                <img class="thumb" src="{{this.images.[0]}}" alt="{{this.NAME}}" />
+              {{/if}}
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  {{else}}
+    <p>No listings available.</p>
+  {{/if}}
+</body>
+</html>

@@ -1,0 +1,116 @@
+/* ==============================
+   ITE5315 – Assignment 2
+   Author: Jeffrey Lamptey (N01675664)
+   ============================== */
+
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #f7f9fc;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* Layout Structure */
+header, footer {
+  background-color: #004aad;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+}
+
+main {
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Headings */
+h2 {
+  color: #004aad;
+  border-bottom: 2px solid #004aad;
+  padding-bottom: 5px;
+}
+
+/* Lists */
+ul { list-style-type: none; padding: 0; }
+ul li { padding: 6px 0; border-bottom: 1px solid #ddd; }
+
+/* ----- Table  ----- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+th, td {
+  border: 1px solid #ccc;         
+  padding: 8px 10px;                
+  text-align: left;
+  vertical-align: top;              
+}
+th {
+  background-color: #004aad;       
+  color: white;
+}
+
+
+/* Utility from minimal snippet */
+.muted { color:#666; }
+
+/* Thumbnails for table/cards */
+.thumb {
+  width: 110px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* Toolbar quick-links (optional) */
+.toolbar { display:flex; gap:10px; margin:10px 0 20px; flex-wrap: wrap; }
+.toolbar a {
+  padding:6px 10px;
+  border:1px solid #ccc;
+  border-radius:6px;
+  text-decoration:none;
+  color:#004aad;
+}
+.toolbar a:hover { background:#eef4ff; }
+
+/* Buttons & Forms */
+button, input[type="submit"] {
+  background-color: #004aad;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+button:hover, input[type="submit"]:hover { background-color: #00347a; }
+input, select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* ----- Highlighting empty service fee (Step 7 & 8) ----- */
+/* .missing-fee {                      
+  background-color: #ffe6e6;       
+} */
+.highlight {
+
+    background-color: #fff3cd; /* A light yellow background */
+    border-left: 5px solid #ffc107; /* A yellow border to stand out */
+}
+
+/* Footer */
+footer p { margin: 0; font-size: 0.9rem; }

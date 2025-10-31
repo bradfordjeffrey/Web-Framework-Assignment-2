@@ -1,0 +1,17 @@
+{
+  "name": "asgn2-n01675664",
+  "version": "1.0.0",
+  "description": "Assignment-2",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jeffrey Lamptey",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "express-handlebars": "^8.0.3",
+    "express-validator": "^7.3.0"
+  },
+  "keywords": []
+}

@@ -1,0 +1,51 @@
+{{!-- ** Add the following to index.hbs *** --}}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+ <h2>{{title}}</h2>
+ <h2>{{message}}</h2>
+   <section>
+    <form action="/search-name/result" method="get" class="search-form">
+      <label for="name"><strong>Enter Name</strong></label>
+      <input
+        id="name"
+        name="name"
+        type="text"
+        required
+        placeholder="e.g. Cozy Loft"
+        value="{{query.name}}"
+      />
+      <button type="submit">Search</button>
+    </form>
+  </section>
+
+  {{#if listings}}
+    <section class="result">
+      <h2>Found {{listings.length}} result(s)</h2>
+
+      {{#each listings}}
+        
+          <p><strong>ID:</strong> {{this.id}}</p>
+          <p><strong>NAME:</strong> {{this.NAME}}</p>
+          <p><strong>Host:</strong> {{lookup this "host name"}}</p>
+          <p><strong>Country:</strong> {{this.country}}</p>
+          <p><strong>Room Type:</strong> {{lookup this "room type"}}</p>
+          <p><strong>Price:</strong> {{this.price}}</p>
+
+          {{#if this.thumbnail}}
+            <img src="{{this.thumbnail}}" alt="{{this.NAME}}" width="420" />
+          {{/if}}
+        </div>
+      {{/each}}
+    </section>
+  {{/if}}
+
+</body>
+</html>
+

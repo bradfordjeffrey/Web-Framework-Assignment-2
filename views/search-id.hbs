@@ -1,0 +1,48 @@
+{{!-- ** Add the following to index.hbs *** --}}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+ <h2>{{title}}</h2>
+ <h2>{{message}}</h2>
+ <section>
+  <form action="/search-id/result" method="get" class="search-form">
+    <label for="id"><strong>Enter ID</strong></label>
+    <input
+      id="id"
+      name="id"              
+      type="number"
+      min="1"
+      required
+      placeholder="e.g. 1004650"
+      value="{{query.id}}"  
+    />
+    <button type="submit">Search</button>
+  </form>
+</section>
+  {{!-- { listing } --}}
+  {{#if listing}}
+    <section class="result">
+      <h2>Result</h2>
+      <ul>
+        <li><strong>Property ID:</strong> {{listing.id}}</li>
+        <li><strong>Country:</strong> {{listing.country}}</li>
+        <li><strong>Location:</strong> {{listing.neighbourhood}}</li>
+        <li><strong>Type:</strong> {{listing.property_type}}</li>
+        <li><strong>Price:</strong> ${{listing.price}}</li>
+      </ul>
+
+      {{#if listing.thumbnail}}
+        <img src="{{listing.thumbnail}}" alt="{{listing.NAME}}" width="420" />
+      {{/if}}
+    </section>
+  {{/if}}
+
+</body>
+</html>
+

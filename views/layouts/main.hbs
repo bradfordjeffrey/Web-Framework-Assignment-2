@@ -1,0 +1,19 @@
+{{!-- ** Add the following to main.hbs *** --}}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{title}}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+    {{> header}} <!-- include header partial -->
+    <main>
+  {{{body}}}<!-- content from specific view -->
+    </main>
+  
+    {{> footer}} <!-- include footer partial -->
+</body>
+
+</html>
